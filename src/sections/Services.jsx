@@ -33,24 +33,37 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="py-20 md:py-24">
-      <div className="mx-auto w-[min(1120px,92%)]">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
-          Services
-        </p>
+    <section
+      id="services"
+      className="border-y border-slate-200 bg-white py-20 md:py-28"
+    >
+      <div className="mx-auto w-[min(1180px,92%)]">
+        <div className="max-w-3xl">
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+            Services
+          </p>
 
-        <h2 className="max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
-          Focused on the operational realities of staffing and workforce teams
-        </h2>
+          <h2 className="text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl">
+            Focused on the operational realities of staffing and workforce teams
+          </h2>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <p className="mt-5 text-lg leading-8 text-slate-600">
+            Our work is designed to improve visibility, reduce friction, and
+            create systems support that holds up in the real world.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <article
               key={service.title}
-              className="rounded-2xl border border-neutral-200 bg-white p-6"
+              className="group rounded-[28px] border border-slate-200 bg-slate-50 p-7 transition hover:-translate-y-1 hover:bg-white hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)]"
             >
-              <h3 className="text-lg font-semibold">{service.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-neutral-600">
+              <div className="mb-6 h-px w-12 bg-blue-500" />
+              <h3 className="text-xl font-semibold tracking-[-0.02em] text-slate-950">
+                {service.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-slate-600">
                 {service.description}
               </p>
             </article>

@@ -9,7 +9,7 @@ import Footer from "./sections/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen bg-neutral-50 text-neutral-900">
+    <div className="min-h-screen bg-stone-50 text-slate-950 antialiased">
       <Navbar />
       <main>
         <Hero />
