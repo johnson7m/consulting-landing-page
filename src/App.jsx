@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import Services from "./sections/Services";
+import Results from "./sections/Results";
 import About from "./sections/About";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
@@ -12,6 +13,7 @@ function App() {
       <main>
         <Hero />
         <Services />
+        <Results />
         <About />
         <Contact />
       </main>

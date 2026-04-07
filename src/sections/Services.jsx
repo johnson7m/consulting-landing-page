@@ -1,19 +1,34 @@
 function Services() {
   const services = [
     {
-      title: "Process Improvement",
+      title: "Workflow & Process Improvement",
       description:
-        "Identify inefficiencies, reduce manual work, and create cleaner, more reliable workflows.",
+        "We identify bottlenecks, reduce manual steps, and design cleaner operational workflows that scale with the business.",
     },
     {
-      title: "Reporting & Visibility",
+      title: "Dashboards & Reporting Solutions",
       description:
-        "Build dashboards, reporting structures, and operational views that support better decisions.",
+        "We build practical reporting structures, internal dashboards, and visibility tools that give teams better insight into the metrics that matter.",
     },
     {
-      title: "Business Technology Support",
+      title: "Portal & Customer-Facing Solutions",
       description:
-        "Connect tools, organize systems, and create practical solutions that help teams execute faster.",
+        "We help translate internal data and business processes into clean external experiences that improve transparency and strengthen client relationships.",
+    },
+    {
+      title: "Data Reconciliation & Audit Support",
+      description:
+        "We create models that compare data across systems, surface discrepancies, and give leadership a clearer picture of operational performance.",
+    },
+    {
+      title: "Systems Alignment",
+      description:
+        "We support the connection of key business tools, fields, and workflows so teams can operate with less friction and more consistency.",
+    },
+    {
+      title: "Operational Problem Solving",
+      description:
+        "When a process is messy, reporting is unreliable, or teams lack visibility, we help bring structure, logic, and execution to the problem.",
     },
   ];
 
@@ -24,9 +39,14 @@ function Services() {
           Services
         </p>
 
-        <h2 className="text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
-          Where we can help
+        <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
+          Practical support across operations, reporting, and business systems
         </h2>
+
+        <p className="mt-4 max-w-3xl text-lg leading-8 text-neutral-600">
+          Our focus is simple: solve real operational problems with solutions that
+          improve visibility, reduce friction, and support better execution.
+        </p>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (

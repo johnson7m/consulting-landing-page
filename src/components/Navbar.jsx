@@ -17,6 +17,12 @@ function Navbar() {
             Services
           </a>
           <a
+            href="#results"
+            className="text-sm font-medium text-neutral-600 transition hover:text-neutral-900"
+          >
+            Results
+          </a>
+          <a
             href="#about"
             className="text-sm font-medium text-neutral-600 transition hover:text-neutral-900"
           >

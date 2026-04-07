@@ -8,12 +8,13 @@ function Contact() {
           </p>
 
           <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
-            Let’s talk about what you need
+            Let’s talk about the problem you need solved
           </h2>
 
           <p className="mt-5 max-w-2xl text-lg leading-8 text-neutral-600">
-            Whether you need support with systems, reporting, process design, or
-            a customer-facing solution, we can start with a simple conversation.
+            Whether you need a better reporting model, a cleaner operational
+            workflow, improved system visibility, or a stronger client-facing
+            solution, we can start with a straightforward conversation.
           </p>
 
           <div className="mt-8">
@@ -21,7 +22,7 @@ function Contact() {
               href="mailto:your@email.com"
               className="inline-flex rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
             >
-              Email Us
+              Start the Conversation
             </a>
           </div>
         </div>
