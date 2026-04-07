@@ -3,19 +3,36 @@ function Contact() {
     <section id="contact" className="py-20 md:py-28">
       <div className="mx-auto w-[min(1180px,92%)]">
         <div className="rounded-[36px] border border-slate-200 bg-white p-8 shadow-[0_20px_50px_rgba(15,23,42,0.06)] md:p-14">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-            Contact
-          </p>
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+            <div>
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+                Contact
+              </p>
 
-          <h2 className="max-w-4xl text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl">
-            Let’s fix what’s slowing down your operations
-          </h2>
+              <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl">
+                Let’s fix what’s slowing down your operations
+              </h2>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Whether the challenge is reporting clarity, systems alignment,
-            workflow friction, or client-facing visibility, we can start with a
-            focused conversation around the problem.
-          </p>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+                Whether the challenge is reporting clarity, systems alignment,
+                workflow friction, or client-facing visibility, we can start
+                with a focused conversation around the problem.
+              </p>
+            </div>
+
+            <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-medium text-slate-950">
+                Best fit for teams dealing with:
+              </p>
+
+              <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                <li>Fragmented reporting across core systems</li>
+                <li>Manual operational workflows</li>
+                <li>Client visibility gaps</li>
+                <li>Need for cleaner dashboards and reporting models</li>
+              </ul>
+            </div>
+          </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <a

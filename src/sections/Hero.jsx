@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 function Hero() {
   return (
     <section
@@ -7,7 +9,11 @@ function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(148,163,184,0.14),transparent_24%)]" />
 
       <div className="relative mx-auto grid w-[min(1180px,92%)] gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-300">
             Staffing & Workforce Systems Consulting
           </p>
@@ -40,17 +46,26 @@ function Hero() {
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
             <div>
-              <span className="block text-white font-medium">Operations visibility</span>
-              <span className="mt-1 block">Dashboards, workflow insight, reporting clarity</span>
+              <span className="block font-medium text-white">Operations visibility</span>
+              <span className="mt-1 block">
+                Dashboards, workflow insight, reporting clarity
+              </span>
             </div>
             <div>
-              <span className="block text-white font-medium">Systems alignment</span>
-              <span className="mt-1 block">ATS, VMS, compliance, and client-facing workflows</span>
+              <span className="block font-medium text-white">Systems alignment</span>
+              <span className="mt-1 block">
+                ATS, VMS, compliance, and client-facing workflows
+              </span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-[0_20px_60px_rgba(2,6,23,0.35)] backdrop-blur-md md:p-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.12, ease: "easeOut" }}
+          className="rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-[0_20px_60px_rgba(2,6,23,0.35)] backdrop-blur-md md:p-8"
+        >
           <div className="flex items-center justify-between border-b border-white/10 pb-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
@@ -90,7 +105,7 @@ function Hero() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

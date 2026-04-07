@@ -43,16 +43,19 @@ function Results() {
         </div>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          {caseStudies.map((study) => (
+          {caseStudies.map((study, index) => (
             <article
               key={study.title}
               className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_10px_30px_rgba(15,23,42,0.05)] md:p-10"
             >
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-600">
-                Case Study
-              </p>
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-600">
+                  Case Study {index + 1}
+                </p>
+                <div className="h-px flex-1 bg-slate-200" />
+              </div>
 
-              <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-slate-950 md:text-3xl">
+              <h3 className="mt-5 max-w-xl text-2xl font-semibold tracking-[-0.03em] text-slate-950 md:text-3xl">
                 {study.title}
               </h3>
 
@@ -60,7 +63,7 @@ function Results() {
                 {study.summary}
               </p>
 
-              <div className="mt-8">
+              <div className="mt-8 rounded-2xl bg-slate-50 p-5">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
                   Outcomes
                 </p>
