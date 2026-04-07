@@ -7,7 +7,7 @@ import Footer from "./sections/Footer";
 
 function App() {
   return (
-    <>
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
       <Navbar />
       <main>
         <Hero />
@@ -16,7 +16,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
