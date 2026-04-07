@@ -1,7 +1,7 @@
 function Results() {
   const caseStudies = [
     {
-      title: "Client Portal & Offer Dashboard",
+      title: "Client-Facing Reporting Portal & Offer Dashboard",
       summary:
         "Built a structured customer-facing portal connected to Salesforce data using Apex, linking internal objects, fields, and key data points to a cleaner external experience.",
       outcome: [
@@ -12,7 +12,7 @@ function Results() {
       ],
     },
     {
-      title: "Tri-System Data Reconciliation Model",
+      title: "Tri-System Data Reconciliation Model (ATS, VMS, Compliance)",
       summary:
         "Designed a reconciliation model for a Fortune 100 healthcare environment that compared records across an internal ATS, a VMS, and a compliance vendor portal.",
       outcome: [

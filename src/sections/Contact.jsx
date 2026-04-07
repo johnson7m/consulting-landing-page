@@ -8,7 +8,7 @@ function Contact() {
           </p>
 
           <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
-            Let’s talk about the problem you need solved
+            Let's fix what's slowing down your operations
           </h2>
 
           <p className="mt-5 max-w-2xl text-lg leading-8 text-neutral-600">

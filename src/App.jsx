@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
+import Problems from "./sections/Problems";
 import Services from "./sections/Services";
 import Results from "./sections/Results";
 import About from "./sections/About";
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <Problems />
         <Services />
         <Results />
         <About />

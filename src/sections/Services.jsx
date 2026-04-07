@@ -1,34 +1,34 @@
 function Services() {
   const services = [
     {
-      title: "Workflow & Process Improvement",
+      title: "Operations Visibility & Reporting",
       description:
-        "We identify bottlenecks, reduce manual steps, and design cleaner operational workflows that scale with the business.",
+        "Dashboards, reporting structures, and data views that give leadership and clients clearer insight into performance.",
     },
     {
-      title: "Dashboards & Reporting Solutions",
+      title: "Business Systems Alignment",
       description:
-        "We build practical reporting structures, internal dashboards, and visibility tools that give teams better insight into the metrics that matter.",
+        "Connect ATS, VMS, and supporting tools into workflows that reflect how your team actually operates.",
     },
     {
-      title: "Portal & Customer-Facing Solutions",
+      title: "Client-Facing Reporting Experiences",
       description:
-        "We help translate internal data and business processes into clean external experiences that improve transparency and strengthen client relationships.",
+        "Translate internal data into clean, external dashboards and portals that improve transparency and client confidence.",
     },
     {
       title: "Data Reconciliation & Audit Support",
       description:
-        "We create models that compare data across systems, surface discrepancies, and give leadership a clearer picture of operational performance.",
+        "Compare data across systems, surface discrepancies, and create structured models for ongoing analysis.",
     },
     {
-      title: "Systems Alignment",
+      title: "Workflow Design & Optimization",
       description:
-        "We support the connection of key business tools, fields, and workflows so teams can operate with less friction and more consistency.",
+        "Reduce manual steps and improve how work moves across teams and systems.",
     },
     {
       title: "Operational Problem Solving",
       description:
-        "When a process is messy, reporting is unreliable, or teams lack visibility, we help bring structure, logic, and execution to the problem.",
+        "When reporting breaks down or systems don’t align, we bring structure and clarity to fix the problem.",
     },
   ];
 
@@ -39,25 +39,18 @@ function Services() {
           Services
         </p>
 
-        <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
-          Practical support across operations, reporting, and business systems
+        <h2 className="max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
+          Focused on the operational realities of staffing and workforce teams
         </h2>
-
-        <p className="mt-4 max-w-3xl text-lg leading-8 text-neutral-600">
-          Our focus is simple: solve real operational problems with solutions that
-          improve visibility, reduce friction, and support better execution.
-        </p>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <article
               key={service.title}
-              className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
+              className="rounded-2xl border border-neutral-200 bg-white p-6"
             >
-              <h3 className="text-xl font-semibold text-neutral-900">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-base leading-7 text-neutral-600">
+              <h3 className="text-lg font-semibold">{service.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-neutral-600">
                 {service.description}
               </p>
             </article>
