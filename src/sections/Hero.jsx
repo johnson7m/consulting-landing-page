@@ -2,18 +2,18 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-slate-950 py-28 text-white md:py-36"
+      className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.16),transparent_28%),radial-gradient(circle_at_80%_20%,rgba(148,163,184,0.16),transparent_22%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(148,163,184,0.14),transparent_24%)]" />
 
-      <div className="relative mx-auto grid w-[min(1180px,92%)] gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+      <div className="relative mx-auto grid w-[min(1180px,92%)] gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <div>
           <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-300">
             Staffing & Workforce Systems Consulting
           </p>
 
-          <h1 className="max-w-5xl text-4xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-5xl lg:text-7xl">
-            Clearer operations, stronger reporting, and better systems for staffing teams.
+          <h1 className="max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-7xl">
+            Better visibility for staffing operations, reporting, and business systems.
           </h1>
 
           <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
@@ -37,31 +37,58 @@ function Hero() {
               View Case Studies
             </a>
           </div>
+
+          <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
+            <div>
+              <span className="block text-white font-medium">Operations visibility</span>
+              <span className="mt-1 block">Dashboards, workflow insight, reporting clarity</span>
+            </div>
+            <div>
+              <span className="block text-white font-medium">Systems alignment</span>
+              <span className="mt-1 block">ATS, VMS, compliance, and client-facing workflows</span>
+            </div>
+          </div>
         </div>
 
-        <div className="grid gap-4">
-          <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <p className="text-sm font-medium text-white">Operations Visibility</p>
-            <p className="mt-3 text-sm leading-7 text-slate-300">
-              Give leadership and delivery teams cleaner access to the metrics,
-              activity, and workflow signals that matter most.
-            </p>
+        <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-[0_20px_60px_rgba(2,6,23,0.35)] backdrop-blur-md md:p-8">
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
+                What this looks like
+              </p>
+              <p className="mt-2 text-lg font-medium text-white">
+                Practical support where operations and systems break down
+              </p>
+            </div>
           </div>
 
-          <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <p className="text-sm font-medium text-white">Reporting Clarity</p>
-            <p className="mt-3 text-sm leading-7 text-slate-300">
-              Replace fragmented tracking methods with dashboards, reconciliation
-              models, and structured reporting views.
-            </p>
-          </div>
+          <div className="mt-6 space-y-4">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-5">
+              <p className="text-sm font-medium text-white">
+                Reporting spread across multiple systems
+              </p>
+              <p className="mt-2 text-sm leading-7 text-slate-300">
+                Bring ATS, VMS, compliance, and operational data into clearer reporting views.
+              </p>
+            </div>
 
-          <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <p className="text-sm font-medium text-white">Business Systems Support</p>
-            <p className="mt-3 text-sm leading-7 text-slate-300">
-              Build cleaner alignment across ATS, VMS, compliance, and
-              client-facing workflows.
-            </p>
+            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-5">
+              <p className="text-sm font-medium text-white">
+                Manual processes that slow teams down
+              </p>
+              <p className="mt-2 text-sm leading-7 text-slate-300">
+                Reduce friction with cleaner workflow design, automation-friendly structure, and better data visibility.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-5">
+              <p className="text-sm font-medium text-white">
+                Client-facing visibility that needs improvement
+              </p>
+              <p className="mt-2 text-sm leading-7 text-slate-300">
+                Create external reporting experiences that strengthen trust and reduce back-and-forth.
+              </p>
+            </div>
           </div>
         </div>
       </div>
