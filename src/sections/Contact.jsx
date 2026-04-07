@@ -6,7 +6,7 @@ function Contact() {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-                Contact
+                Contact Clearframe
               </p>
 
               <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl">
@@ -15,7 +15,7 @@ function Contact() {
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
                 Whether the challenge is reporting clarity, systems alignment,
-                workflow friction, or client-facing visibility, we can start
+                workflow friction, or client-facing visibility, Clearframe can start
                 with a focused conversation around the problem.
               </p>
             </div>

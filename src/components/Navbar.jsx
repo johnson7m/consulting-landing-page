@@ -16,7 +16,7 @@ function Navbar() {
           href="#top"
           className="text-sm font-semibold uppercase tracking-[0.22em] text-white"
         >
-          Workforce Systems Consulting
+          Clearframe Consulting
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

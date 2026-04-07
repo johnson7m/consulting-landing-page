@@ -10,7 +10,7 @@ function ProofStrip() {
     <section className="border-b border-slate-200 bg-white">
       <div className="mx-auto flex w-[min(1180px,92%)] flex-col gap-6 py-6 md:flex-row md:items-center md:justify-between">
         <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-          Selected capabilities
+          Clearframe capabilities
         </p>
 
         <div className="grid gap-3 md:grid-cols-2 xl:flex xl:flex-wrap xl:justify-end xl:gap-6">
