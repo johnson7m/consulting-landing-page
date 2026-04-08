@@ -14,9 +14,9 @@ function Navbar() {
       <div className="mx-auto flex min-h-[76px] w-[min(1180px,92%)] items-center justify-between">
         <a
           href="#top"
-          className="text-sm font-semibold uppercase tracking-[0.22em] text-white"
+          className="text-[13px]font-semibold tracking-[0.18em] text-white"
         >
-          Clearframe Consulting
+          Clearframe
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

@@ -15,7 +15,7 @@ function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-300">
-            Staffing & Workforce Systems Consulting
+            Clearframe Consulting • Staffing & Workforce Systems
           </p>
 
           <h1 className="max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-7xl">
@@ -33,14 +33,14 @@ function Hero() {
               href="#contact"
               className="rounded-full bg-blue-500 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-blue-400"
             >
-              Start a Conversation
+              Discsuss Your Workflow & Reporting
             </a>
 
             <a
               href="#results"
               className="rounded-full border border-white/15 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-white/5"
             >
-              View Case Studies
+              See How We've Improved Operations
             </a>
           </div>
 

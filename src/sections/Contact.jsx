@@ -39,14 +39,14 @@ function Contact() {
               href="mailto:your@email.com"
               className="rounded-full bg-slate-950 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-slate-800"
             >
-              Start the Conversation
+              Start a Focused Discussion
             </a>
 
             <a
               href="#results"
               className="rounded-full border border-slate-300 px-6 py-3.5 text-sm font-medium text-slate-900 transition hover:bg-slate-100"
             >
-              Review Case Studies
+              Explore Case Studies
             </a>
           </div>
         </div>
