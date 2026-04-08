@@ -3,6 +3,9 @@ function ProofStrip() {
     "Client-facing reporting portals",
     "Offer and performance dashboards",
     "Tri-system reconciliation models",
+    "CRM & ATS workflow design",
+    "VMS reporting models",
+    "Robust compliance methodologies",
     "Built for staffing & workforce operations",
   ];
 
