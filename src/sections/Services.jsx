@@ -11,7 +11,6 @@ import {
 function ServiceHeader({ Icon, title, reverse = false }) {
   return (
     <div className="group">
-      {/* Mobile layout */}
       <div className="md:hidden">
         <div className="flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100 transition group-hover:bg-sky-100">
@@ -26,7 +25,6 @@ function ServiceHeader({ Icon, title, reverse = false }) {
         <div className="mt-4 h-px w-20 bg-slate-200 transition-all duration-300 group-hover:w-28 group-hover:bg-sky-300" />
       </div>
 
-      {/* Desktop layout */}
       <div className="hidden items-center gap-3 md:flex">
         {reverse && (
           <div className="mr-3 h-px flex-1 bg-slate-200 transition-all duration-300 group-hover:bg-sky-300 group-hover:flex-[1.4]" />
@@ -186,7 +184,6 @@ function ServiceBlock({ section, index }) {
 
   return (
     <MotionReveal delay={0.08 + index * 0.04}>
-      {/* Mobile: always text then visual */}
       <div className="space-y-8 lg:hidden">
         <div>
           <ServiceHeader Icon={Icon} title={section.title} reverse={false} />
@@ -203,7 +200,6 @@ function ServiceBlock({ section, index }) {
         <div>{section.visual}</div>
       </div>
 
-      {/* Desktop: alternate layout */}
       <div className="hidden gap-12 lg:grid lg:grid-cols-2 lg:items-center">
         {!section.reverse ? (
           <>

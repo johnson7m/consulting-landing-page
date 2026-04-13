@@ -12,7 +12,6 @@ import {
 function ResultHeader({ Icon, title, reverse = false }) {
   return (
     <div className="group">
-      {/* Mobile */}
       <div className="md:hidden">
         <div className="flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100 transition group-hover:bg-sky-100">
@@ -27,7 +26,6 @@ function ResultHeader({ Icon, title, reverse = false }) {
         <div className="mt-4 h-px w-20 bg-slate-200 transition-all duration-300 group-hover:w-28 group-hover:bg-sky-300" />
       </div>
 
-      {/* Desktop */}
       <div className="hidden items-center gap-3 md:flex">
         {reverse && (
           <div className="mr-3 h-px flex-1 bg-slate-200 transition-all duration-300 group-hover:bg-sky-300 group-hover:flex-[1.4]" />
@@ -65,6 +63,50 @@ function OutcomeList({ items }) {
   );
 }
 
+function StatTile({ label, value, tone = "slate" }) {
+  const toneClasses =
+    tone === "sky"
+      ? "bg-sky-50 ring-sky-100"
+      : "bg-stone-50 ring-slate-200";
+
+  return (
+    <div className={`rounded-2xl p-4 ring-1 ${toneClasses}`}>
+      <p className="text-xs uppercase tracking-[0.18em] text-slate-500">{label}</p>
+      <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function CompareRow({ left, right, status }) {
+  return (
+    <div className="grid grid-cols-[1fr_auto_1fr_auto] items-center gap-3">
+      <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
+        {left}
+      </div>
+
+      <ArrowUpRight className="h-4 w-4 text-sky-500" />
+
+      <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
+        {right}
+      </div>
+
+      <span
+        className={`rounded-full px-3 py-1 text-xs font-medium ${
+          status === "Matched"
+            ? "bg-sky-50 text-sky-700 ring-1 ring-sky-100"
+            : status === "Delta"
+            ? "bg-stone-100 text-slate-700 ring-1 ring-slate-200"
+            : "bg-sky-50 text-sky-700 ring-1 ring-sky-100"
+        }`}
+      >
+        {status}
+      </span>
+    </div>
+  );
+}
+
 function PortalDashboardMock() {
   return (
     <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
@@ -92,7 +134,7 @@ function PortalDashboardMock() {
 
       <div className="mt-4 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-          <div className="mb-3 flex items-center gap-2 text-slate-700">
+          <div className="mb-4 flex items-center gap-2 text-slate-700">
             <BarChart3 className="h-4 w-4 text-sky-600" />
             <span className="text-sm font-medium">Workstream mix</span>
           </div>
@@ -170,56 +212,11 @@ function ReconciliationMock() {
   );
 }
 
-function CompareRow({ left, right, status }) {
-  return (
-    <div className="grid grid-cols-[1fr_auto_1fr_auto] items-center gap-3">
-      <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-        {left}
-      </div>
-
-      <ArrowUpRight className="h-4 w-4 text-sky-500" />
-
-      <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-        {right}
-      </div>
-
-      <span
-        className={`rounded-full px-3 py-1 text-xs font-medium ${
-          status === "Matched"
-            ? "bg-sky-50 text-sky-700 ring-1 ring-sky-100"
-            : status === "Delta"
-            ? "bg-stone-100 text-slate-700 ring-1 ring-slate-200"
-            : "bg-sky-50 text-sky-700 ring-1 ring-sky-100"
-        }`}
-      >
-        {status}
-      </span>
-    </div>
-  );
-}
-
-function StatTile({ label, value, tone = "slate" }) {
-  const toneClasses =
-    tone === "sky"
-      ? "bg-sky-50 ring-sky-100"
-      : "bg-stone-50 ring-slate-200";
-
-  return (
-    <div className={`rounded-2xl p-4 ring-1 ${toneClasses}`}>
-      <p className="text-xs uppercase tracking-[0.18em] text-slate-500">{label}</p>
-      <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-        {value}
-      </p>
-    </div>
-  );
-}
-
 function ResultBlock({ study, index }) {
   const Icon = study.icon;
 
   return (
     <MotionReveal delay={index * 0.08}>
-      {/* Mobile */}
       <div className="space-y-8 lg:hidden">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-600">
@@ -240,7 +237,6 @@ function ResultBlock({ study, index }) {
         <div>{study.visual}</div>
       </div>
 
-      {/* Desktop */}
       <div className="hidden gap-12 lg:grid lg:grid-cols-2 lg:items-center">
         {!study.reverse ? (
           <>

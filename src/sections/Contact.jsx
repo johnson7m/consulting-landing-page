@@ -1,4 +1,5 @@
 import MotionReveal from "../components/MotionReveal";
+import { CalendarClock } from "lucide-react";
 
 function Contact() {
   const painPoints = [
@@ -48,9 +49,12 @@ function Contact() {
               </div>
 
               <div className="rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200">
-                <p className="text-sm font-medium text-slate-950">
-                  What happens next
-                </p>
+                <div className="flex items-center gap-2 text-sky-600">
+                  <CalendarClock className="h-4 w-4" />
+                  <p className="text-sm font-medium text-slate-950">
+                    What happens next
+                  </p>
+                </div>
 
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   Placeholder Co will review your submission, follow up within one
@@ -141,7 +145,7 @@ function Contact() {
                           type="checkbox"
                           name="painPoints"
                           value={item}
-                          className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                          className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-600 focus:ring-sky-500"
                         />
                         <span className="text-sm leading-6 text-slate-700">
                           {item}

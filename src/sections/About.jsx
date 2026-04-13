@@ -1,4 +1,5 @@
 import MotionReveal from "../components/MotionReveal";
+import { Eye, Workflow } from "lucide-react";
 
 function About() {
   return (
@@ -31,14 +32,26 @@ function About() {
 
             <div className="grid gap-8 pt-4 sm:grid-cols-2">
               <div className="border-t border-slate-200 pt-5">
-                <p className="text-sm font-medium text-slate-950">Clarity over complexity</p>
+                <div className="flex items-center gap-2 text-sky-600">
+                  <Eye className="h-4 w-4" />
+                  <p className="text-sm font-medium text-slate-950">
+                    Clarity over complexity
+                  </p>
+                </div>
+
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   Solutions should make the business easier to run, not harder to maintain.
                 </p>
               </div>
 
               <div className="border-t border-slate-200 pt-5">
-                <p className="text-sm font-medium text-slate-950">Built for real workflows</p>
+                <div className="flex items-center gap-2 text-sky-600">
+                  <Workflow className="h-4 w-4" />
+                  <p className="text-sm font-medium text-slate-950">
+                    Built for real workflows
+                  </p>
+                </div>
+
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   Systems and reporting should reflect how teams actually operate day to day.
                 </p>

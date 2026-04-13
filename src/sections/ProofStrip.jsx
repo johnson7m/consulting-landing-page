@@ -36,11 +36,7 @@ function ProofStrip() {
   const scrollByAmount = (amount) => {
     const el = scrollRef.current;
     if (!el) return;
-
-    el.scrollBy({
-      left: amount,
-      behavior: "smooth",
-    });
+    el.scrollBy({ left: amount, behavior: "smooth" });
   };
 
   return (
