@@ -18,13 +18,13 @@ function Hero() {
             Clearframe Consulting • Staffing & Workforce Systems
           </p>
 
-          <h1 className="max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-7xl">
-            Better visibility for staffing operations, reporting, and business systems.
+          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] sm:text-5xl lg:text-7xl">
+            Clearer operations, cleaner reporting, and better systems for staffing teams.
           </h1>
 
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
-            We help staffing and workforce vendors reduce reporting friction,
-            align fragmented systems, and build practical solutions that improve
+          <p className="mt-8 max-w-xl text-lg leading-8 text-slate-300 md:text-xl">
+            Clearframe helps staffing and workforce vendors reduce reporting friction,
+            align fragmented systems, and create practical solutions that improve
             visibility for leadership, delivery teams, and clients.
           </p>
 
