@@ -25,18 +25,18 @@ function Results() {
   ];
 
   return (
-    <section id="results" className="bg-stone-50 py-20 md:py-28">
-      <div className="mx-auto w-[min(1180px,92%)]">
+    <section id="results" className="py-24 md:py-32">
+      <div className="mx-auto w-[min(1200px,92%)]">
         <div className="max-w-3xl">
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
             Selected Results
           </p>
 
-          <h2 className="text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-5xl">
+          <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl">
             Work that improved visibility, execution, and client experience
           </h2>
 
-          <p className="mt-5 text-lg leading-8 text-slate-600">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
             Practical solutions built for real operational constraints, not just
             presentation value.
           </p>
@@ -46,7 +46,7 @@ function Results() {
           {caseStudies.map((study, index) => (
             <article
               key={study.title}
-              className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_10px_30px_rgba(15,23,42,0.05)] md:p-10"
+              className="rounded-[32px] bg-white p-8 shadow-[0_10px_30px_rgba(15,23,42,0.04)] ring-1 ring-slate-200 md:p-10"
             >
               <div className="flex items-center justify-between gap-4">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-600">
@@ -63,7 +63,7 @@ function Results() {
                 {study.summary}
               </p>
 
-              <div className="mt-8 rounded-2xl bg-slate-50 p-5">
+              <div className="mt-8 rounded-[24px] bg-stone-50 p-5 ring-1 ring-slate-200">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
                   Outcomes
                 </p>

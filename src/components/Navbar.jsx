@@ -11,12 +11,12 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
-      <div className="mx-auto flex min-h-[76px] w-[min(1180px,92%)] items-center justify-between">
+      <div className="mx-auto flex min-h-[78px] w-[min(1200px,92%)] items-center justify-between">
         <a
           href="#top"
-          className="text-[13px]font-semibold tracking-[0.18em] text-white"
+          className="text-[13px] font-semibold tracking-[0.18em] text-white"
         >
-          CLEARFRAME
+          Placeholder Co
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -55,7 +55,7 @@ function Navbar() {
 
       {menuOpen && (
         <div className="border-t border-white/10 bg-slate-950 md:hidden">
-          <nav className="mx-auto flex w-[min(1180px,92%)] flex-col gap-2 py-4">
+          <nav className="mx-auto flex w-[min(1200px,92%)] flex-col gap-2 py-4">
             {navItems.map((item) => (
               <a
                 key={item.label}

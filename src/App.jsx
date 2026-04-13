@@ -8,7 +8,6 @@ import About from "./sections/About";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 
-
 function App() {
   return (
     <div className="min-h-screen bg-stone-50 text-slate-950 antialiased">

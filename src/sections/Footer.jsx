@@ -1,9 +1,9 @@
 function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white py-8">
-      <div className="mx-auto flex w-[min(1180px,92%)] flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex w-[min(1200px,92%)] flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <p className="text-sm text-slate-500">
-          © 2026 Clearframe Consulting. All rights reserved.
+          © 2026 Placeholder Co. All rights reserved.
         </p>
 
         <a

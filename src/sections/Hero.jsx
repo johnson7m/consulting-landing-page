@@ -4,18 +4,18 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32"
+      className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32 lg:py-36"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(148,163,184,0.14),transparent_24%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.16),transparent_28%),radial-gradient(circle_at_80%_20%,rgba(148,163,184,0.12),transparent_22%)]" />
 
-      <div className="relative mx-auto grid w-[min(1180px,92%)] gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+      <div className="relative mx-auto grid w-[min(1200px,92%)] gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-300">
-            Clearframe Consulting • Staffing & Workforce Systems
+            Staffing & Workforce Systems Consulting
           </p>
 
           <h1 className="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.05em] sm:text-5xl lg:text-7xl">
@@ -23,9 +23,9 @@ function Hero() {
           </h1>
 
           <p className="mt-8 max-w-xl text-lg leading-8 text-slate-300 md:text-xl">
-            Clearframe helps staffing and workforce vendors reduce reporting friction,
-            align fragmented systems, and create practical solutions that improve
-            visibility for leadership, delivery teams, and clients.
+            Placeholder Co helps staffing and workforce vendors reduce reporting
+            friction, align fragmented systems, and build practical solutions
+            that improve visibility for leadership, delivery teams, and clients.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -33,28 +33,33 @@ function Hero() {
               href="#contact"
               className="rounded-full bg-blue-500 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-blue-400"
             >
-              Discsuss Your Workflow & Reporting
+              Discuss Your Workflow & Reporting
             </a>
 
             <a
               href="#results"
               className="rounded-full border border-white/15 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-white/5"
             >
-              See How We've Improved Operations
+              See How We’ve Improved Operations
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
+          <div className="mt-12 grid max-w-2xl gap-6 sm:grid-cols-2">
             <div>
-              <span className="block font-medium text-white">Operations visibility</span>
-              <span className="mt-1 block">
-                Dashboards, workflow insight, reporting clarity
+              <span className="block text-sm font-medium text-white">
+                Operations visibility
+              </span>
+              <span className="mt-2 block text-sm leading-7 text-slate-300">
+                Dashboards, workflow insight, and reporting clarity for internal teams and clients.
               </span>
             </div>
+
             <div>
-              <span className="block font-medium text-white">Systems alignment</span>
-              <span className="mt-1 block">
-                ATS, VMS, compliance, and client-facing workflows
+              <span className="block text-sm font-medium text-white">
+                Systems alignment
+              </span>
+              <span className="mt-2 block text-sm leading-7 text-slate-300">
+                Support across ATS, VMS, compliance, and customer-facing workflows.
               </span>
             </div>
           </div>
@@ -64,21 +69,19 @@ function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.12, ease: "easeOut" }}
-          className="rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-[0_20px_60px_rgba(2,6,23,0.35)] backdrop-blur-md md:p-8"
+          className="rounded-[32px] bg-white/6 p-6 shadow-[0_24px_70px_rgba(2,6,23,0.35)] ring-1 ring-white/10 backdrop-blur-md md:p-8"
         >
-          <div className="flex items-center justify-between border-b border-white/10 pb-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-                What this looks like
-              </p>
-              <p className="mt-2 text-lg font-medium text-white">
-                Practical support where operations and systems break down
-              </p>
-            </div>
+          <div className="border-b border-white/10 pb-4">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
+              Where we help most
+            </p>
+            <p className="mt-3 text-xl font-medium tracking-[-0.02em] text-white">
+              Practical support where operations and systems stop lining up cleanly
+            </p>
           </div>
 
           <div className="mt-6 space-y-4">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-5">
+            <div className="rounded-[24px] bg-slate-900/40 p-5 ring-1 ring-white/8">
               <p className="text-sm font-medium text-white">
                 Reporting spread across multiple systems
               </p>
@@ -87,16 +90,16 @@ function Hero() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-5">
+            <div className="rounded-[24px] bg-slate-900/40 p-5 ring-1 ring-white/8">
               <p className="text-sm font-medium text-white">
-                Manual processes that slow teams down
+                Manual workflows slowing delivery teams down
               </p>
               <p className="mt-2 text-sm leading-7 text-slate-300">
-                Reduce friction with cleaner workflow design, automation-friendly structure, and better data visibility.
+                Reduce friction with cleaner workflow design and better visibility into what matters.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-5">
+            <div className="rounded-[24px] bg-slate-900/40 p-5 ring-1 ring-white/8">
               <p className="text-sm font-medium text-white">
                 Client-facing visibility that needs improvement
               </p>
