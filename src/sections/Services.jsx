@@ -8,6 +8,30 @@ import {
   LayoutPanelTop,
 } from "lucide-react";
 
+function ServiceHeader({ Icon, title, reverse = false }) {
+  return (
+    <div className="group">
+      <div className="flex items-center gap-3">
+        {reverse && (
+          <div className="mr-3 h-px flex-1 bg-slate-200 transition-all duration-300 group-hover:bg-sky-300 group-hover:flex-[1.4]" />
+        )}
+
+        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100 transition group-hover:bg-sky-100">
+          <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
+        </div>
+
+        <h3 className="text-2xl font-semibold tracking-[-0.02em] text-slate-950 transition group-hover:translate-x-[1px]">
+          {title}
+        </h3>
+
+        {!reverse && (
+          <div className="ml-3 h-px flex-1 bg-slate-200 transition-all duration-300 group-hover:bg-sky-300 group-hover:flex-[1.4]" />
+        )}
+      </div>
+    </div>
+  );
+}
+
 function Services() {
   const sections = [
     {
@@ -63,15 +87,12 @@ function Services() {
                 className="grid gap-12 lg:grid-cols-2 lg:items-center"
               >
                 <div className={section.reverse ? "order-2 lg:order-2" : ""}>
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-sky-600 ring-1 ring-sky-100">
-                    <Icon className="h-5 w-5" />
-                  </div>
-
-                  <h3 className="text-2xl font-semibold tracking-[-0.02em] text-slate-950">
-                    {section.title}
-                  </h3>
-
-                  <p className="mt-4 max-w-xl text-base leading-7 text-slate-600">
+                  <ServiceHeader
+                    Icon={Icon}
+                    title={section.title}
+                    reverse={section.reverse}
+                  />
+                  <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
                     {section.description}
                   </p>
 
