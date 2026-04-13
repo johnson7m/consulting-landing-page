@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MotionReveal from "./MotionReveal";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
     { label: "Services", href: "#services" },
@@ -11,8 +12,21 @@ function Navbar() {
     { label: "Contact", href: "#contact" },
   ];
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-stone-50/80 backdrop-blur-xl">
+    <header
+      className={`sticky top-0 z-50 transition-all ${
+        scrolled
+          ? "border-b border-slate-200/80 bg-stone-50/80 backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex min-h-[78px] w-[min(1100px,92%)] items-center justify-between">
         <a
           href="#top"
@@ -38,7 +52,7 @@ function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center rounded-full border border-slate-300 p-3 text-slate-950 transition hover:bg-white md:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-slate-300 p-3 text-slate-950 transition hover:bg-white/80 md:hidden"
         >
           <span className="flex w-5 flex-col gap-1">
             <span className="h-px w-full bg-slate-950" />
@@ -49,7 +63,11 @@ function Navbar() {
       </div>
 
       {menuOpen && (
-        <MotionReveal y={12} duration={0.35} className="border-t border-slate-200 bg-stone-50 md:hidden">
+        <MotionReveal
+          y={12}
+          duration={0.35}
+          className="border-t border-slate-200 bg-stone-50 md:hidden"
+        >
           <nav className="mx-auto flex w-[min(1100px,92%)] flex-col gap-2 py-4">
             {navItems.map((item) => (
               <a
