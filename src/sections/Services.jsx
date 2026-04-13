@@ -11,7 +11,23 @@ import {
 function ServiceHeader({ Icon, title, reverse = false }) {
   return (
     <div className="group">
-      <div className="flex items-center gap-3">
+      {/* Mobile layout */}
+      <div className="md:hidden">
+        <div className="flex items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100 transition group-hover:bg-sky-100">
+            <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
+          </div>
+
+          <h3 className="text-2xl font-semibold tracking-[-0.02em] text-slate-950 transition group-hover:translate-x-[1px]">
+            {title}
+          </h3>
+        </div>
+
+        <div className="mt-4 h-px w-20 bg-slate-200 transition-all duration-300 group-hover:w-28 group-hover:bg-sky-300" />
+      </div>
+
+      {/* Desktop layout */}
+      <div className="hidden items-center gap-3 md:flex">
         {reverse && (
           <div className="mr-3 h-px flex-1 bg-slate-200 transition-all duration-300 group-hover:bg-sky-300 group-hover:flex-[1.4]" />
         )}
@@ -32,85 +48,28 @@ function ServiceHeader({ Icon, title, reverse = false }) {
   );
 }
 
-function Services() {
-  const sections = [
-    {
-      title: "Operations Visibility & Reporting",
-      description:
-        "Build dashboards and reporting structures that give leadership and clients a clearer view into performance and activity.",
-      icon: BarChart3,
-      visual: <ReportingMock />,
-    },
-    {
-      title: "Business Systems Alignment",
-      description:
-        "Align ATS, VMS, and compliance systems so workflows reflect how your team actually operates day to day.",
-      icon: Workflow,
-      visual: <WorkflowMock />,
-      reverse: true,
-    },
-    {
-      title: "Data Reconciliation & Audit Support",
-      description:
-        "Identify discrepancies across systems and create structured models for ongoing visibility and audit readiness.",
-      icon: ShieldCheck,
-      visual: <AuditMock />,
-    },
-  ];
-
+function MetricTile({ label, value }) {
   return (
-    <section id="services" className="py-24 md:py-32">
-      <div className="mx-auto w-[min(1100px,92%)]">
-        <MotionReveal className="max-w-3xl">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-            Services
-          </p>
+    <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
+      <p className="text-xs uppercase tracking-[0.18em] text-slate-500">{label}</p>
+      <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+        {value}
+      </p>
+    </div>
+  );
+}
 
-          <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl">
-            Focused on the operational realities of staffing teams
-          </h2>
-
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            We help bring clarity to reporting, align disconnected systems,
-            and reduce the operational friction that slows teams down.
-          </p>
-        </MotionReveal>
-
-        <div className="mt-20 space-y-28">
-          {sections.map((section, index) => {
-            const Icon = section.icon;
-
-            return (
-              <MotionReveal
-                key={section.title}
-                delay={0.08 + index * 0.04}
-                className="grid gap-12 lg:grid-cols-2 lg:items-center"
-              >
-                <div className={section.reverse ? "order-2 lg:order-2" : ""}>
-                  <ServiceHeader
-                    Icon={Icon}
-                    title={section.title}
-                    reverse={section.reverse}
-                  />
-                  <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-                    {section.description}
-                  </p>
-
-                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-sky-600">
-                    <span>Built for clarity and execution</span>
-                    <ArrowUpRight className="h-4 w-4" />
-                  </div>
-                </div>
-
-                <div className={section.reverse ? "order-1 lg:order-1" : ""}>
-                  {section.visual}
-                </div>
-              </MotionReveal>
-            );
-          })}
-        </div>
+function WorkflowRow({ left, right }) {
+  return (
+    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+      <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
+        {left}
       </div>
-    </section>
+      <ArrowUpRight className="h-4 w-4 text-sky-500" />
+      <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
+        {right}
+      </div>
+    </div>
   );
 }
 
@@ -222,28 +181,119 @@ function AuditMock() {
   );
 }
 
-function MetricTile({ label, value }) {
+function ServiceBlock({ section, index }) {
+  const Icon = section.icon;
+
   return (
-    <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-      <p className="text-xs uppercase tracking-[0.18em] text-slate-500">{label}</p>
-      <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-        {value}
-      </p>
-    </div>
+    <MotionReveal delay={0.08 + index * 0.04}>
+      {/* Mobile: always text then visual */}
+      <div className="space-y-8 lg:hidden">
+        <div>
+          <ServiceHeader Icon={Icon} title={section.title} reverse={false} />
+          <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
+            {section.description}
+          </p>
+
+          <div className="mt-6 flex items-center gap-2 text-sm font-medium text-sky-600">
+            <span>Built for clarity and execution</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </div>
+        </div>
+
+        <div>{section.visual}</div>
+      </div>
+
+      {/* Desktop: alternate layout */}
+      <div className="hidden gap-12 lg:grid lg:grid-cols-2 lg:items-center">
+        {!section.reverse ? (
+          <>
+            <div>
+              <ServiceHeader Icon={Icon} title={section.title} reverse={false} />
+              <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
+                {section.description}
+              </p>
+
+              <div className="mt-6 flex items-center gap-2 text-sm font-medium text-sky-600">
+                <span>Built for clarity and execution</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </div>
+            </div>
+
+            <div>{section.visual}</div>
+          </>
+        ) : (
+          <>
+            <div>{section.visual}</div>
+
+            <div>
+              <ServiceHeader Icon={Icon} title={section.title} reverse />
+              <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
+                {section.description}
+              </p>
+
+              <div className="mt-6 flex items-center gap-2 text-sm font-medium text-sky-600">
+                <span>Built for clarity and execution</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </MotionReveal>
   );
 }
 
-function WorkflowRow({ left, right }) {
+function Services() {
+  const sections = [
+    {
+      title: "Operations Visibility & Reporting",
+      description:
+        "Build dashboards and reporting structures that give leadership and clients a clearer view into performance and activity.",
+      icon: BarChart3,
+      visual: <ReportingMock />,
+    },
+    {
+      title: "Business Systems Alignment",
+      description:
+        "Align ATS, VMS, and compliance systems so workflows reflect how your team actually operates day to day.",
+      icon: Workflow,
+      visual: <WorkflowMock />,
+      reverse: true,
+    },
+    {
+      title: "Data Reconciliation & Audit Support",
+      description:
+        "Identify discrepancies across systems and create structured models for ongoing visibility and audit readiness.",
+      icon: ShieldCheck,
+      visual: <AuditMock />,
+    },
+  ];
+
   return (
-    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-      <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-        {left}
+    <section id="services" className="py-24 md:py-32">
+      <div className="mx-auto w-[min(1100px,92%)]">
+        <MotionReveal className="max-w-3xl">
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+            Services
+          </p>
+
+          <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl">
+            Focused on the operational realities of staffing teams
+          </h2>
+
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            We help bring clarity to reporting, align disconnected systems,
+            and reduce the operational friction that slows teams down.
+          </p>
+        </MotionReveal>
+
+        <div className="mt-20 space-y-28">
+          {sections.map((section, index) => (
+            <ServiceBlock key={section.title} section={section} index={index} />
+          ))}
+        </div>
       </div>
-      <ArrowUpRight className="h-4 w-4 text-sky-500" />
-      <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-        {right}
-      </div>
-    </div>
+    </section>
   );
 }
 
