@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MotionReveal from "./MotionReveal";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -7,14 +8,15 @@ function Navbar() {
     { label: "Services", href: "#services" },
     { label: "Results", href: "#results" },
     { label: "Approach", href: "#about" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
-      <div className="mx-auto flex min-h-[78px] w-[min(1200px,92%)] items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-stone-50/80 backdrop-blur-xl">
+      <div className="mx-auto flex min-h-[78px] w-[min(1100px,92%)] items-center justify-between">
         <a
           href="#top"
-          className="text-[13px] font-semibold tracking-[0.18em] text-white"
+          className="text-[13px] font-semibold tracking-[0.18em] text-slate-950"
         >
           Placeholder Co
         </a>
@@ -24,18 +26,11 @@ function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-slate-300 transition hover:text-white"
+              className="text-sm font-medium text-slate-600 transition hover:text-slate-950"
             >
               {item.label}
             </a>
           ))}
-
-          <a
-            href="#contact"
-            className="rounded-full border border-white/15 bg-white px-4 py-2.5 text-sm font-medium text-slate-950 transition hover:bg-slate-200"
-          >
-            Contact
-          </a>
         </nav>
 
         <button
@@ -43,39 +38,31 @@ function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center rounded-full border border-white/15 p-3 text-white transition hover:bg-white/5 md:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-slate-300 p-3 text-slate-950 transition hover:bg-white md:hidden"
         >
           <span className="flex w-5 flex-col gap-1">
-            <span className="h-px w-full bg-white" />
-            <span className="h-px w-full bg-white" />
-            <span className="h-px w-full bg-white" />
+            <span className="h-px w-full bg-slate-950" />
+            <span className="h-px w-full bg-slate-950" />
+            <span className="h-px w-full bg-slate-950" />
           </span>
         </button>
       </div>
 
       {menuOpen && (
-        <div className="border-t border-white/10 bg-slate-950 md:hidden">
-          <nav className="mx-auto flex w-[min(1200px,92%)] flex-col gap-2 py-4">
+        <MotionReveal y={12} duration={0.35} className="border-t border-slate-200 bg-stone-50 md:hidden">
+          <nav className="mx-auto flex w-[min(1100px,92%)] flex-col gap-2 py-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-white/5 hover:text-white"
+                className="rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950"
               >
                 {item.label}
               </a>
             ))}
-
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="mt-2 rounded-full bg-white px-5 py-3 text-center text-sm font-medium text-slate-950 transition hover:bg-slate-200"
-            >
-              Contact
-            </a>
           </nav>
-        </div>
+        </MotionReveal>
       )}
     </header>
   );
