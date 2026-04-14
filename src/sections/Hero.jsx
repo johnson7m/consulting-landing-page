@@ -13,7 +13,7 @@ function Hero() {
         <div className="grid gap-16 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <MotionReveal>
             <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">
-              VisibleGap · Staffing & Workforce Systems Consulting
+              Visible Gap · Staffing & Workforce Systems Consulting
             </p>
 
             <h1 className="max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.06em] text-slate-950 sm:text-5xl lg:text-7xl">
@@ -21,7 +21,7 @@ function Hero() {
             </h1>
 
             <p className="mt-8 max-w-xl text-[17px] leading-8 text-slate-600 md:text-xl">
-              VisibleGap helps staffing and workforce vendors reduce reporting
+              Visible Gap helps staffing and workforce vendors reduce reporting
               friction, align fragmented systems, and build practical solutions
               that improve visibility for leadership, delivery teams, and clients.
             </p>

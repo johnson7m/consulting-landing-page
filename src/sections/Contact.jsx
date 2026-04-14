@@ -56,7 +56,7 @@ function Contact() {
                   </p>
                 </div>
               <p className="mt-3 text-sm leading-7 text-slate-600">
-                VisibleGap will review your submission, follow up within one
+                Visible Gap will review your submission, follow up within one
                 business day, and start with a focused conversation around the
                 problem you’re trying to solve.
               </p>

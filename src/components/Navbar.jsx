@@ -32,7 +32,7 @@ function Navbar() {
           href="#top"
           className="text-[13px] font-semibold tracking-[0.18em] text-slate-950"
         >
-          VisibleGap
+          Visible Gap
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
