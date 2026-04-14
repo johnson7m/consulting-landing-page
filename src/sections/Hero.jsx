@@ -1,5 +1,49 @@
 import MotionReveal from "../components/MotionReveal";
-import { BarChart3, GitBranch, ArrowUpRight } from "lucide-react";
+import {
+  BarChart3,
+  GitBranch,
+  ArrowUpRight,
+  BriefcaseBusiness,
+  TriangleAlert,
+  CircleCheckBig,
+  TrendingUp,
+} from "lucide-react";
+
+function HeroMetric({ label, value, icon: Icon, tone = "neutral" }) {
+  const toneClasses =
+    tone === "sky"
+      ? "bg-sky-50 ring-sky-100"
+      : "bg-white ring-slate-200";
+
+  return (
+    <div className={`rounded-2xl p-4 ring-1 ${toneClasses}`}>
+      <div className="flex items-center justify-between">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+          {label}
+        </p>
+        <Icon className="h-4 w-4 text-sky-600" />
+      </div>
+
+      <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function HeroListRow({ label, width }) {
+  return (
+    <div className="space-y-2">
+      <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+        {label}
+      </div>
+      <div
+        className="h-3 rounded-full bg-slate-200"
+        style={{ width }}
+      />
+    </div>
+  );
+}
 
 function Hero() {
   return (
@@ -81,36 +125,63 @@ function Hero() {
                   <div className="mb-5 flex items-center justify-between">
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-                        Visibility snapshot
+                        Daily Operations View
                       </p>
                       <p className="mt-2 text-sm font-medium text-slate-950">
-                        A clearer view of operations
+                        Leadership reporting snapshot
                       </p>
                     </div>
                     <div className="h-3 w-3 rounded-full bg-sky-500" />
                   </div>
 
-                  <div className="grid gap-3">
-                    <div className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-                      <div className="mb-3 flex items-center justify-between">
-                        <div className="h-2 w-24 rounded-full bg-slate-300" />
-                        <BarChart3 className="h-4 w-4 text-sky-600" />
-                      </div>
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    <HeroMetric
+                      label="Open Reqs"
+                      value="42"
+                      icon={BriefcaseBusiness}
+                      tone="neutral"
+                    />
+                    <HeroMetric
+                      label="At Risk"
+                      value="7"
+                      icon={TriangleAlert}
+                      tone="neutral"
+                    />
+                    <HeroMetric
+                      label="Accepted"
+                      value="18"
+                      icon={CircleCheckBig}
+                      tone="sky"
+                    />
+                  </div>
 
-                      <div className="grid grid-cols-3 gap-2">
-                        <div className="h-16 rounded-xl bg-slate-100" />
-                        <div className="h-16 rounded-xl bg-slate-100" />
-                        <div className="h-16 rounded-xl bg-slate-100" />
-                      </div>
+                  <div className="mt-4 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+                    <div className="mb-4 flex items-center gap-2 text-slate-700">
+                      <BarChart3 className="h-4 w-4 text-sky-600" />
+                      <span className="text-sm font-medium">Offer Activity Trend</span>
                     </div>
 
-                    <div className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-                      <div className="mb-3 h-2 w-28 rounded-full bg-slate-300" />
-                      <div className="space-y-2">
-                        <div className="h-3 w-full rounded-full bg-slate-100" />
-                        <div className="h-3 w-5/6 rounded-full bg-slate-100" />
-                        <div className="h-3 w-2/3 rounded-full bg-slate-100" />
-                      </div>
+                    <div className="flex h-24 items-end gap-2">
+                      {[38, 52, 35, 67, 74, 58, 82].map((n, i) => (
+                        <div
+                          key={i}
+                          className="flex-1 rounded-t-lg bg-sky-100"
+                          style={{ height: `${n}%` }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-4 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+                    <div className="mb-4 flex items-center gap-2 text-slate-700">
+                      <TrendingUp className="h-4 w-4 text-sky-600" />
+                      <span className="text-sm font-medium">Reporting Focus Areas</span>
+                    </div>
+
+                    <div className="space-y-3">
+                      <HeroListRow label="Client visibility" width="92%" />
+                      <HeroListRow label="Workstream performance" width="78%" />
+                      <HeroListRow label="Offer throughput" width="64%" />
                     </div>
                   </div>
                 </div>
