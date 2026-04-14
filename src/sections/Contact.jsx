@@ -55,12 +55,11 @@ function Contact() {
                     What happens next
                   </p>
                 </div>
-
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Placeholder Co will review your submission, follow up within one
-                  business day, and start with a focused conversation around the
-                  problem you’re trying to solve.
-                </p>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Visible Gap will review your submission, follow up within one
+                business day, and start with a focused conversation around the
+                problem you’re trying to solve.
+              </p>
               </div>
             </div>
           </MotionReveal>
