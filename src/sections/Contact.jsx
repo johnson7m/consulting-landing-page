@@ -67,7 +67,7 @@ function Contact() {
                     </p>
                   </div>
 
-                  <form name="contact" netlify action="/success" className="mt-8 space-y-8">
+                  <form name="contact" netlify className="mt-8 space-y-8">
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div>
                         <label
