@@ -30,9 +30,25 @@ function Navbar() {
       <div className="mx-auto flex min-h-[78px] w-[min(1100px,92%)] items-center justify-between">
         <a
           href="#top"
-          className="text-[13px] font-semibold tracking-[0.18em] text-slate-950"
+          aria-label="Visible Gap home"
+          className="group inline-flex items-center gap-3 text-slate-950"
         >
-          Visible Gap
+          <span className="relative flex h-6 w-5 items-center justify-center">
+            <img
+              src="/logo.svg"
+              alt=""
+              className="h-6 w-auto transition-transform duration-300 ease-out group-hover:-translate-y-[1px]"
+            />
+
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-1/2 top-1/2 h-[3px] w-[7px] -translate-x-1/2 -translate-y-1/2 bg-stone-50/90 transition-all duration-300 ease-out group-hover:w-[9px]"
+            />
+          </span>
+
+          <span className="text-[13px] font-semibold tracking-[0.14em] transition-transform duration-300 ease-out group-hover:translate-x-[1px]">
+            Visible Gap
+          </span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
