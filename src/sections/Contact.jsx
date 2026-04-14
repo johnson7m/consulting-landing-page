@@ -53,7 +53,6 @@ function Contact() {
           <MotionReveal delay={0.08}>
             <div className="rounded-[32px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200 md:p-8">
               <div className="flex flex-col gap-8">
-                {/* Form stays first on all viewports */}
                 <div className="order-1">
                   <div className="border-b border-slate-200 pb-5">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
@@ -67,7 +66,14 @@ function Contact() {
                     </p>
                   </div>
 
-                  <form name="contact" netlify className="mt-8 space-y-8">
+                  <form
+                    name="contact"
+                    method="POST"
+                    netlify
+                    className="mt-8 space-y-8"
+                  >
+                    <input type="hidden" name="form-name" value="contact" />
+
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div>
                         <label
@@ -175,7 +181,6 @@ function Contact() {
                   </form>
                 </div>
 
-                {/* On mobile this stays after the form */}
                 <div className="order-2 rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200">
                   <div className="flex items-center gap-2 text-sky-600">
                     <CalendarClock className="h-4 w-4" />
