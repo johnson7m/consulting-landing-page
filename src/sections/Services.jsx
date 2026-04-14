@@ -4,8 +4,9 @@ import {
   Workflow,
   ShieldCheck,
   ArrowUpRight,
-  Activity,
-  LayoutPanelTop,
+  Database,
+  FileSpreadsheet,
+  MonitorCheck,
 } from "lucide-react";
 
 function ServiceHeader({ Icon, title, reverse = false }) {
@@ -46,133 +47,157 @@ function ServiceHeader({ Icon, title, reverse = false }) {
   );
 }
 
-function MetricTile({ label, value }) {
+function FlowNode({ icon: Icon, label }) {
   return (
-    <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-      <p className="text-xs uppercase tracking-[0.18em] text-slate-500">{label}</p>
-      <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-        {value}
-      </p>
+    <div className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 ring-1 ring-slate-200">
+      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100">
+        <Icon className="h-4 w-4" />
+      </div>
+      <span className="text-sm font-medium text-slate-700">{label}</span>
     </div>
   );
 }
 
-function WorkflowRow({ left, right }) {
+function ConnectorLabel({ text }) {
   return (
-    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-      <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-        {left}
-      </div>
-      <ArrowUpRight className="h-4 w-4 text-sky-500" />
-      <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-        {right}
-      </div>
+    <div className="flex items-center justify-center">
+      <span className="rounded-full bg-stone-50 px-3 py-1 text-xs font-medium text-slate-500 ring-1 ring-slate-200">
+        {text}
+      </span>
     </div>
   );
 }
 
-function ReportingMock() {
+function VisibilityFlowMock() {
   return (
     <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
-      <div className="mb-5 flex items-center justify-between">
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-            Reporting Snapshot
-          </p>
-          <p className="mt-2 text-sm font-medium text-slate-950">
-            Daily visibility dashboard
-          </p>
-        </div>
-        <div className="h-3 w-3 rounded-full bg-sky-500" />
-      </div>
-
-      <div className="grid gap-3 sm:grid-cols-3">
-        <MetricTile label="Open Items" value="42" />
-        <MetricTile label="At Risk" value="7" />
-        <MetricTile label="Accepted" value="18" />
-      </div>
-
-      <div className="mt-4 rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-        <div className="mb-4 flex items-center gap-2 text-slate-700">
-          <BarChart3 className="h-4 w-4 text-sky-600" />
-          <span className="text-sm font-medium">Performance Trend</span>
-        </div>
-
-        <div className="flex h-28 items-end gap-2">
-          {[42, 55, 38, 67, 74, 61, 82].map((n, i) => (
-            <div
-              key={i}
-              className="flex-1 rounded-t-lg bg-sky-100"
-              style={{ height: `${n}%` }}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function WorkflowMock() {
-  return (
-    <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
-      <div className="mb-5 flex items-center gap-2 text-slate-700">
-        <Workflow className="h-4 w-4 text-sky-600" />
-        <span className="text-sm font-medium">Systems Flow</span>
+      <div className="mb-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
+          Visibility Architecture
+        </p>
+        <p className="mt-2 text-sm font-medium text-slate-950">
+          Source data to reporting view
+        </p>
       </div>
 
       <div className="grid gap-4">
-        <WorkflowRow left="ATS" right="Visibility Layer" />
-        <WorkflowRow left="VMS" right="Reporting Model" />
-        <WorkflowRow left="Compliance" right="Audit Output" />
+        <FlowNode icon={Database} label="Operational Source Data" />
+        <ConnectorLabel text="Normalize + Structure" />
+        <FlowNode icon={FileSpreadsheet} label="Reporting Layer" />
+        <ConnectorLabel text="Surface Insights" />
+        <FlowNode icon={MonitorCheck} label="Leadership & Client Visibility" />
       </div>
 
       <div className="mt-5 rounded-2xl bg-sky-50 p-4 ring-1 ring-sky-100">
-        <p className="text-sm font-medium text-slate-950">Cleaner handoffs</p>
+        <p className="text-sm font-medium text-slate-950">
+          Better visibility starts with cleaner inputs
+        </p>
         <p className="mt-2 text-sm leading-6 text-slate-600">
-          Reduce manual reconciliation between systems and make reporting more reliable.
+          Turn fragmented operational data into clearer reporting views that leadership
+          and clients can actually use.
         </p>
       </div>
     </div>
   );
 }
 
-function AuditMock() {
+function AlignmentFlowMock() {
   return (
     <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
-      <div className="mb-5 flex items-center gap-2 text-slate-700">
-        <ShieldCheck className="h-4 w-4 text-sky-600" />
-        <span className="text-sm font-medium">Audit View</span>
+      <div className="mb-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
+          Systems Alignment
+        </p>
+        <p className="mt-2 text-sm font-medium text-slate-950">
+          Handoffs between core platforms
+        </p>
+      </div>
+
+      <div className="grid gap-4">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+          <FlowNode icon={Database} label="ATS" />
+          <ArrowUpRight className="h-4 w-4 text-sky-500" />
+          <FlowNode icon={Workflow} label="Workflow Layer" />
+        </div>
+
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+          <FlowNode icon={Database} label="VMS" />
+          <ArrowUpRight className="h-4 w-4 text-sky-500" />
+          <FlowNode icon={BarChart3} label="Reporting Output" />
+        </div>
+
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+          <FlowNode icon={ShieldCheck} label="Compliance" />
+          <ArrowUpRight className="h-4 w-4 text-sky-500" />
+          <FlowNode icon={MonitorCheck} label="Client-Facing Experience" />
+        </div>
+      </div>
+
+      <div className="mt-5 rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
+        <p className="text-sm font-medium text-slate-950">Cleaner system relationships</p>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          Reduce friction where teams lose time: data handoffs, inconsistent field logic,
+          and disconnected workflows.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function AuditFlowMock() {
+  return (
+    <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
+      <div className="mb-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
+          Audit Model
+        </p>
+        <p className="mt-2 text-sm font-medium text-slate-950">
+          Compare, flag, and roll up discrepancies
+        </p>
       </div>
 
       <div className="space-y-3">
         {[
-          ["FG vs ATS", "Matched"],
-          ["ATS vs Compliance", "Delta found"],
-          ["Monthly Rollup", "Ready"],
-        ].map(([label, status]) => (
+          ["System A", "System B", "Match / Delta"],
+          ["Monthly Input", "Audit Layer", "Review"],
+          ["Exception List", "Rollup View", "Action"],
+        ].map(([left, right, status]) => (
           <div
-            key={label}
-            className="flex items-center justify-between rounded-2xl bg-stone-50 px-4 py-3 ring-1 ring-slate-200"
+            key={`${left}-${right}`}
+            className="grid grid-cols-[1fr_auto_1fr_auto] items-center gap-3"
           >
-            <span className="text-sm text-slate-700">{label}</span>
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-slate-950">
-              <Activity className="h-4 w-4 text-sky-600" />
+            <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
+              {left}
+            </div>
+            <ArrowUpRight className="h-4 w-4 text-sky-500" />
+            <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
+              {right}
+            </div>
+            <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 ring-1 ring-sky-100">
               {status}
             </span>
           </div>
         ))}
       </div>
 
-      <div className="mt-5 rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-        <div className="mb-3 flex items-center gap-2 text-slate-700">
-          <LayoutPanelTop className="h-4 w-4 text-sky-600" />
-          <span className="text-sm font-medium">Summary Rollup</span>
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+        <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
+          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Compare</p>
+          <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+            3 Sources
+          </p>
         </div>
-        <div className="grid grid-cols-4 gap-2">
-          <div className="h-10 rounded-lg bg-slate-200" />
-          <div className="h-10 rounded-lg bg-slate-200" />
-          <div className="h-10 rounded-lg bg-slate-200" />
-          <div className="h-10 rounded-lg bg-slate-200" />
+        <div className="rounded-2xl bg-sky-50 p-4 ring-1 ring-sky-100">
+          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Flag</p>
+          <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+            Deltas
+          </p>
+        </div>
+        <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
+          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Roll up</p>
+          <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
+            Output
+          </p>
         </div>
       </div>
     </div>
@@ -246,14 +271,14 @@ function Services() {
       description:
         "Build dashboards and reporting structures that give leadership and clients a clearer view into performance and activity.",
       icon: BarChart3,
-      visual: <ReportingMock />,
+      visual: <VisibilityFlowMock />,
     },
     {
       title: "Business Systems Alignment",
       description:
         "Align ATS, VMS, and compliance systems so workflows reflect how your team actually operates day to day.",
       icon: Workflow,
-      visual: <WorkflowMock />,
+      visual: <AlignmentFlowMock />,
       reverse: true,
     },
     {
@@ -261,7 +286,7 @@ function Services() {
       description:
         "Identify discrepancies across systems and create structured models for ongoing visibility and audit readiness.",
       icon: ShieldCheck,
-      visual: <AuditMock />,
+      visual: <AuditFlowMock />,
     },
   ];
 

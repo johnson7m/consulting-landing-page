@@ -3,10 +3,10 @@ import {
   LayoutDashboard,
   ScanSearch,
   ArrowUpRight,
-  Activity,
   CircleCheckBig,
   BarChart3,
   GitBranch,
+  FileSpreadsheet,
 } from "lucide-react";
 
 function ResultHeader({ Icon, title, reverse = false }) {
@@ -151,9 +151,13 @@ function PortalDashboardMock() {
         </div>
 
         <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-          <div className="mb-3 h-2 w-24 rounded-full bg-slate-300" />
+          <div className="mb-4 flex items-center gap-2 text-slate-700">
+            <FileSpreadsheet className="h-4 w-4 text-sky-600" />
+            <span className="text-sm font-medium">Detail view</span>
+          </div>
+
           <div className="space-y-3">
-            {[72, 84, 66, 58].map((w, i) => (
+            {[72, 84, 66, 58, 79].map((w, i) => (
               <div key={i} className="space-y-2">
                 <div className="h-2 w-16 rounded-full bg-slate-200" />
                 <div
@@ -164,6 +168,12 @@ function PortalDashboardMock() {
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+        <StatTile label="Client Access" value="Daily" tone="slate" />
+        <StatTile label="Workstreams" value="5" tone="sky" />
+        <StatTile label="Visibility" value="Up" tone="slate" />
       </div>
     </div>
   );
