@@ -8,7 +8,7 @@ function About() {
         <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <MotionReveal>
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-              About Visible Gap
+              About VisibleGap
             </p>
 
             <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl">
@@ -18,7 +18,7 @@ function About() {
 
           <MotionReveal delay={0.08} className="space-y-8">
             <p className="max-w-2xl text-lg leading-8 text-slate-600">
-              Visible Gap focuses on the problems that sit between systems,
+              VisibleGap focuses on the problems that sit between systems,
               workflows, and execution. That means understanding how staffing teams
               actually work, where visibility breaks down, and where manual friction
               starts to compound.
