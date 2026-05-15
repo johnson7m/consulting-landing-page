@@ -3,6 +3,7 @@ import Hero from "./sections/Hero";
 import ProofStrip from "./sections/ProofStrip";
 import Problems from "./sections/Problems";
 import Services from "./sections/Services";
+import Pricing from "./sections/Pricing";
 import Results from "./sections/Results";
 import About from "./sections/About";
 import Contact from "./sections/Contact";
@@ -17,6 +18,7 @@ function App() {
         <ProofStrip />
         <Problems />
         <Services />
+        <Pricing />
         <Results />
         <About />
         <Contact />

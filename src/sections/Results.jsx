@@ -1,351 +1,188 @@
 import MotionReveal from "../components/MotionReveal";
 import {
+  BarChart3,
+  CircleCheckBig,
+  FileSpreadsheet,
+  GitBranch,
   LayoutDashboard,
   ScanSearch,
-  ArrowUpRight,
-  CircleCheckBig,
-  BarChart3,
-  GitBranch,
-  FileSpreadsheet,
+  UsersRound,
 } from "lucide-react";
 
-function ResultHeader({ Icon, title, reverse = false }) {
+function OutcomeCard({ icon, title, context, outcomes }) {
+  const OutcomeIcon = icon;
+
   return (
-    <div className="group">
-      <div className="md:hidden">
-        <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100 transition group-hover:bg-sky-100">
-            <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
-          </div>
-
-          <h3 className="text-2xl font-semibold tracking-[-0.02em] text-slate-950">
-            {title}
-          </h3>
-        </div>
-
-        <div className="mt-4 h-px w-20 bg-slate-200 transition-all duration-300 group-hover:w-28 group-hover:bg-sky-300" />
+    <div className="h-full rounded-[24px] bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)] ring-1 ring-slate-200">
+      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100">
+        <OutcomeIcon className="h-5 w-5" />
       </div>
 
-      <div className="hidden items-center gap-3 md:flex">
-        {reverse && (
-          <div className="mr-3 h-px flex-1 bg-slate-200 transition-all duration-300 group-hover:bg-sky-300 group-hover:flex-[1.4]" />
-        )}
+      <h3 className="mt-6 text-xl font-semibold tracking-normal text-slate-950">
+        {title}
+      </h3>
+      <p className="mt-4 text-sm leading-7 text-slate-600">{context}</p>
 
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100 transition group-hover:bg-sky-100">
-          <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
-        </div>
-
-        <h3 className="text-2xl font-semibold tracking-[-0.02em] text-slate-950">
-          {title}
-        </h3>
-
-        {!reverse && (
-          <div className="ml-3 h-px flex-1 bg-slate-200 transition-all duration-300 group-hover:bg-sky-300 group-hover:flex-[1.4]" />
-        )}
-      </div>
+      <ul className="mt-6 space-y-4">
+        {outcomes.map((item) => (
+          <li
+            key={item}
+            className="flex gap-3 border-t border-slate-200 pt-4 text-sm leading-6 text-slate-700"
+          >
+            <CircleCheckBig className="mt-1 h-4 w-4 shrink-0 text-sky-600" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
-function OutcomeList({ items }) {
-  return (
-    <ul className="mt-8 space-y-4">
-      {items.map((item) => (
-        <li
-          key={item}
-          className="flex items-start gap-3 border-b border-slate-200 pb-4 text-sm leading-7 text-slate-700"
-        >
-          <CircleCheckBig className="mt-1 h-4 w-4 shrink-0 text-sky-600" />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
+function DashboardMock() {
+  const rows = [
+    ["Pipeline health", "Visible", "88%"],
+    ["Manual rollups", "Reduced", "Low"],
+    ["Follow-up status", "Tracked", "Daily"],
+  ];
 
-function StatTile({ label, value, tone = "slate" }) {
-  const toneClasses =
-    tone === "sky"
-      ? "bg-sky-50 ring-sky-100"
-      : "bg-stone-50 ring-slate-200";
-
-  return (
-    <div className={`rounded-2xl p-4 ring-1 ${toneClasses}`}>
-      <p className="text-xs uppercase tracking-[0.18em] text-slate-500">{label}</p>
-      <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-        {value}
-      </p>
-    </div>
-  );
-}
-
-function CompareRow({ left, right, status }) {
-  return (
-    <div className="grid grid-cols-[1fr_auto_1fr_auto] items-center gap-3">
-      <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-        {left}
-      </div>
-
-      <ArrowUpRight className="h-4 w-4 text-sky-500" />
-
-      <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-        {right}
-      </div>
-
-      <span
-        className={`rounded-full px-3 py-1 text-xs font-medium ${
-          status === "Matched"
-            ? "bg-sky-50 text-sky-700 ring-1 ring-sky-100"
-            : status === "Delta"
-            ? "bg-stone-100 text-slate-700 ring-1 ring-slate-200"
-            : "bg-sky-50 text-sky-700 ring-1 ring-sky-100"
-        }`}
-      >
-        {status}
-      </span>
-    </div>
-  );
-}
-
-function PortalDashboardMock() {
   return (
     <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
-      <div className="mb-5 flex items-center justify-between">
+      <div className="mb-5 flex items-start justify-between gap-4">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-            Client Portal View
+            Outcome view
           </p>
           <p className="mt-2 text-sm font-medium text-slate-950">
-            Offer dashboard snapshot
+            What better visibility makes easier to manage
           </p>
         </div>
-
-        <div className="inline-flex items-center gap-2 text-slate-700">
-          <LayoutDashboard className="h-4 w-4 text-sky-600" />
-          <div className="h-3 w-3 rounded-full bg-sky-500" />
-        </div>
+        <LayoutDashboard className="h-5 w-5 text-sky-600" />
       </div>
 
       <div className="grid gap-3 sm:grid-cols-3">
-        <StatTile label="Accepted" value="18" tone="sky" />
-        <StatTile label="Pending" value="11" tone="slate" />
-        <StatTile label="Declined" value="5" tone="slate" />
-      </div>
-
-      <div className="mt-4 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-          <div className="mb-4 flex items-center gap-2 text-slate-700">
-            <BarChart3 className="h-4 w-4 text-sky-600" />
-            <span className="text-sm font-medium">Workstream mix</span>
-          </div>
-
-          <div className="flex h-28 items-end gap-2">
-            {[52, 68, 35, 74, 58].map((n, i) => (
-              <div
-                key={i}
-                className="flex-1 rounded-t-lg bg-sky-100"
-                style={{ height: `${n}%` }}
-              />
-            ))}
-          </div>
+        <div className="rounded-2xl bg-sky-50 p-4 ring-1 ring-sky-100">
+          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Leaders</p>
+          <p className="mt-3 text-2xl font-semibold text-slate-950">Clearer</p>
         </div>
-
         <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-          <div className="mb-4 flex items-center gap-2 text-slate-700">
-            <FileSpreadsheet className="h-4 w-4 text-sky-600" />
-            <span className="text-sm font-medium">Detail view</span>
-          </div>
-
-          <div className="space-y-3">
-            {[72, 84, 66, 58, 79].map((w, i) => (
-              <div key={i} className="space-y-2">
-                <div className="h-2 w-16 rounded-full bg-slate-200" />
-                <div
-                  className="h-3 rounded-full bg-slate-200"
-                  style={{ width: `${w}%` }}
-                />
-              </div>
-            ))}
-          </div>
+          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Teams</p>
+          <p className="mt-3 text-2xl font-semibold text-slate-950">Aligned</p>
+        </div>
+        <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
+          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Reports</p>
+          <p className="mt-3 text-2xl font-semibold text-slate-950">Usable</p>
         </div>
       </div>
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">
-        <StatTile label="Client Access" value="Daily" tone="slate" />
-        <StatTile label="Workstreams" value="5" tone="sky" />
-        <StatTile label="Visibility" value="Up" tone="slate" />
+      <div className="mt-5 overflow-hidden rounded-2xl ring-1 ring-slate-200">
+        {rows.map(([metric, status, value]) => (
+          <div
+            key={metric}
+            className="grid grid-cols-[1fr_auto_auto] gap-4 border-b border-slate-200 bg-stone-50 px-4 py-3 last:border-b-0"
+          >
+            <p className="text-sm font-medium text-slate-800">{metric}</p>
+            <p className="text-sm text-slate-500">{status}</p>
+            <p className="text-sm font-semibold text-slate-950">{value}</p>
+          </div>
+        ))}
       </div>
     </div>
-  );
-}
-
-function ReconciliationMock() {
-  return (
-    <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
-      <div className="mb-5 flex items-center justify-between">
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-            Reconciliation Model
-          </p>
-          <p className="mt-2 text-sm font-medium text-slate-950">
-            Tri-system comparison view
-          </p>
-        </div>
-
-        <div className="inline-flex items-center gap-2 text-slate-700">
-          <ScanSearch className="h-4 w-4 text-sky-600" />
-          <div className="h-3 w-3 rounded-full bg-sky-500" />
-        </div>
-      </div>
-
-      <div className="grid gap-4">
-        <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-          <div className="mb-4 flex items-center gap-2 text-slate-700">
-            <GitBranch className="h-4 w-4 text-sky-600" />
-            <span className="text-sm font-medium">Source alignment</span>
-          </div>
-
-          <div className="grid gap-3">
-            <CompareRow left="Fieldglass" right="eRecruit" status="Matched" />
-            <CompareRow left="eRecruit" right="Compliance" status="Delta" />
-            <CompareRow left="Monthly Rollup" right="Audit Output" status="Ready" />
-          </div>
-        </div>
-
-        <div className="grid gap-3 sm:grid-cols-3">
-          <StatTile label="Matched" value="84%" tone="sky" />
-          <StatTile label="Delta Items" value="12" tone="slate" />
-          <StatTile label="Review Ready" value="Yes" tone="slate" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ResultBlock({ study, index }) {
-  const Icon = study.icon;
-
-  return (
-    <MotionReveal delay={index * 0.08}>
-      <div className="space-y-8 lg:hidden">
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-600">
-            {study.label}
-          </p>
-
-          <div className="mt-4">
-            <ResultHeader Icon={Icon} title={study.title} reverse={false} />
-          </div>
-
-          <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-            {study.summary}
-          </p>
-
-          <OutcomeList items={study.outcome} />
-        </div>
-
-        <div>{study.visual}</div>
-      </div>
-
-      <div className="hidden gap-12 lg:grid lg:grid-cols-2 lg:items-center">
-        {!study.reverse ? (
-          <>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-600">
-                {study.label}
-              </p>
-
-              <div className="mt-4">
-                <ResultHeader Icon={Icon} title={study.title} reverse={false} />
-              </div>
-
-              <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-                {study.summary}
-              </p>
-
-              <OutcomeList items={study.outcome} />
-            </div>
-
-            <div>{study.visual}</div>
-          </>
-        ) : (
-          <>
-            <div>{study.visual}</div>
-
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-600">
-                {study.label}
-              </p>
-
-              <div className="mt-4">
-                <ResultHeader Icon={Icon} title={study.title} reverse />
-              </div>
-
-              <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-                {study.summary}
-              </p>
-
-              <OutcomeList items={study.outcome} />
-            </div>
-          </>
-        )}
-      </div>
-    </MotionReveal>
   );
 }
 
 function Results() {
-  const caseStudies = [
+  const outcomes = [
     {
-      label: "Case Study 01",
-      title: "Client-Facing Reporting Portal & Offer Dashboard",
-      summary:
-        "Built a structured customer-facing portal connected to Salesforce data using Apex, linking internal objects, fields, and key data points to a cleaner external experience.",
-      outcome: [
-        "Created daily visibility into team performance and offer activity",
-        "Improved client transparency and strengthened negotiating position",
-        "Replaced dated tracking methods with a scalable reporting design",
+      title: "Leadership-ready dashboards",
+      context:
+        "Operational reporting views designed around the questions leaders actually ask each week.",
+      outcomes: [
+        "Reduced dependence on manual spreadsheet rollups",
+        "Clearer pipeline, activity, account, and workflow status",
+        "More consistent reporting conversations across teams",
       ],
-      icon: LayoutDashboard,
-      visual: <PortalDashboardMock />,
+      icon: BarChart3,
     },
     {
-      label: "Case Study 02",
-      title: "Tri-System Data Reconciliation Model",
-      summary:
-        "Designed a reconciliation model for a Fortune 100 healthcare environment that compared records across an internal ATS, a VMS, and a compliance vendor portal.",
-      outcome: [
-        "Improved visibility into discrepancies and system deltas",
-        "Created a more robust analytical model with rollup presentation",
-        "Supported cleaner auditing and self-reporting processes",
+      title: "Cleaner CRM and process visibility",
+      context:
+        "CRM and operating-system cleanup that makes stages, fields, activity, and ownership easier to trust.",
+      outcomes: [
+        "Cleaner stage and field logic",
+        "Better handoffs between sales, recruiting, service, and operations",
+        "Improved visibility into follow-up and stuck work",
+      ],
+      icon: GitBranch,
+    },
+    {
+      title: "Practical audit and reconciliation views",
+      context:
+        "Structured comparison and exception views for teams managing data across multiple operational tools.",
+      outcomes: [
+        "Clearer discrepancy review between systems",
+        "More usable source-of-truth conversations",
+        "Better operating rhythm for recurring data checks",
       ],
       icon: ScanSearch,
-      visual: <ReconciliationMock />,
-      reverse: true,
     },
   ];
 
   return (
     <section id="results" className="py-24 md:py-32">
       <div className="mx-auto w-[min(1100px,92%)]">
-        <MotionReveal className="max-w-3xl">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-            Selected Results
-          </p>
+        <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <MotionReveal className="max-w-3xl">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+              Results
+            </p>
 
-          <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl">
-            Work that improved visibility, execution, and client experience
-          </h2>
+            <h2 className="text-4xl font-semibold tracking-normal text-slate-950 sm:text-5xl lg:text-6xl">
+              Practical outcomes without inflated claims
+            </h2>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Practical solutions built for real operational constraints, not just
-            presentation value.
-          </p>
-        </MotionReveal>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              Anonymized examples from operational visibility work: cleaner
+              reporting, clearer handoffs, better dashboards, and systems that
+              are easier to manage.
+            </p>
 
-        <div className="mt-20 space-y-28">
-          {caseStudies.map((study, index) => (
-            <ResultBlock key={study.title} study={study} index={index} />
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              <div className="border-t border-slate-200 pt-5">
+                <div className="flex items-center gap-2 text-sky-600">
+                  <FileSpreadsheet className="h-4 w-4" />
+                  <p className="text-sm font-medium text-slate-950">
+                    Less manual reporting
+                  </p>
+                </div>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  Replace repeated rollups with views teams can maintain.
+                </p>
+              </div>
+
+              <div className="border-t border-slate-200 pt-5">
+                <div className="flex items-center gap-2 text-sky-600">
+                  <UsersRound className="h-4 w-4" />
+                  <p className="text-sm font-medium text-slate-950">
+                    Better operating conversations
+                  </p>
+                </div>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  Give leaders and operators the same source of context.
+                </p>
+              </div>
+            </div>
+          </MotionReveal>
+
+          <MotionReveal delay={0.08}>
+            <DashboardMock />
+          </MotionReveal>
+        </div>
+
+        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+          {outcomes.map((outcome, index) => (
+            <MotionReveal key={outcome.title} delay={index * 0.05}>
+              <OutcomeCard {...outcome} />
+            </MotionReveal>
           ))}
         </div>
       </div>

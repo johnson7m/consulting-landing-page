@@ -1,6 +1,7 @@
-# Consulting Landing Page
+# Visible Gap Consulting Website
 
-Business landing page for an IT consulting business built with React and Vite.
+Conversion-focused website for Visible Gap, an operations visibility and systems
+consulting firm.
 
 ## Tech Stack
 

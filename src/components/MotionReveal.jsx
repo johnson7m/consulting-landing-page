@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 
+const MotionDiv = motion.div;
+
 function MotionReveal({
   children,
   className = "",
@@ -9,7 +11,7 @@ function MotionReveal({
   amount = 0.2,
 }) {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount }}
@@ -17,7 +19,7 @@ function MotionReveal({
       className={className}
     >
       {children}
-    </motion.div>
+    </MotionDiv>
   );
 }
 

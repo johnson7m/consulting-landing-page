@@ -6,9 +6,10 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
+    { label: "Problems", href: "#problems" },
     { label: "Services", href: "#services" },
+    { label: "Pricing", href: "#pricing" },
     { label: "Results", href: "#results" },
-    { label: "Approach", href: "#about" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -51,7 +52,7 @@ function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -61,6 +62,13 @@ function Navbar() {
               {item.label}
             </a>
           ))}
+
+          <a
+            href="#contact"
+            className="rounded-full bg-slate-950 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
+          >
+            Request Audit
+          </a>
         </nav>
 
         <button
@@ -95,6 +103,13 @@ function Navbar() {
                 {item.label}
               </a>
             ))}
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-2xl bg-slate-950 px-4 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+            >
+              Request Audit
+            </a>
           </nav>
         </MotionReveal>
       )}

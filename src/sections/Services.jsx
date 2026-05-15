@@ -1,316 +1,184 @@
 import MotionReveal from "../components/MotionReveal";
 import {
-  BarChart3,
-  Workflow,
-  ShieldCheck,
   ArrowUpRight,
+  BarChart3,
+  CircleCheckBig,
+  ClipboardCheck,
   Database,
-  FileSpreadsheet,
-  MonitorCheck,
+  FileText,
+  GitBranch,
+  Settings2,
+  Workflow,
 } from "lucide-react";
 
-function ServiceHeader({ Icon, title, reverse = false }) {
-  return (
-    <div className="group">
-      <div className="md:hidden">
-        <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100 transition group-hover:bg-sky-100">
-            <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
-          </div>
+function ServiceCard({ icon, title, description, bullets }) {
+  const ServiceIcon = icon;
 
-          <h3 className="text-2xl font-semibold tracking-[-0.02em] text-slate-950 transition group-hover:translate-x-[1px]">
-            {title}
-          </h3>
+  return (
+    <div className="h-full rounded-[24px] bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)] ring-1 ring-slate-200">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100">
+          <ServiceIcon className="h-5 w-5" />
         </div>
-
-        <div className="mt-4 h-px w-20 bg-slate-200 transition-all duration-300 group-hover:w-28 group-hover:bg-sky-300" />
+        <ArrowUpRight className="h-4 w-4 shrink-0 text-slate-300" />
       </div>
 
-      <div className="hidden items-center gap-3 md:flex">
-        {reverse && (
-          <div className="mr-3 h-px flex-1 bg-slate-200 transition-all duration-300 group-hover:bg-sky-300 group-hover:flex-[1.4]" />
-        )}
+      <h3 className="mt-6 text-xl font-semibold tracking-normal text-slate-950">
+        {title}
+      </h3>
+      <p className="mt-4 text-sm leading-7 text-slate-600">{description}</p>
 
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100 transition group-hover:bg-sky-100">
-          <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
-        </div>
-
-        <h3 className="text-2xl font-semibold tracking-[-0.02em] text-slate-950 transition group-hover:translate-x-[1px]">
-          {title}
-        </h3>
-
-        {!reverse && (
-          <div className="ml-3 h-px flex-1 bg-slate-200 transition-all duration-300 group-hover:bg-sky-300 group-hover:flex-[1.4]" />
-        )}
-      </div>
-    </div>
-  );
-}
-
-function FlowNode({ icon: Icon, label }) {
-  return (
-    <div className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 ring-1 ring-slate-200">
-      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100">
-        <Icon className="h-4 w-4" />
-      </div>
-      <span className="text-sm font-medium text-slate-700">{label}</span>
-    </div>
-  );
-}
-
-function ConnectorLabel({ text }) {
-  return (
-    <div className="flex items-center justify-center">
-      <span className="rounded-full bg-stone-50 px-3 py-1 text-xs font-medium text-slate-500 ring-1 ring-slate-200">
-        {text}
-      </span>
-    </div>
-  );
-}
-
-function VisibilityFlowMock() {
-  return (
-    <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
-      <div className="mb-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-          Visibility Architecture
-        </p>
-        <p className="mt-2 text-sm font-medium text-slate-950">
-          Source data to reporting view
-        </p>
-      </div>
-
-      <div className="grid gap-4">
-        <FlowNode icon={Database} label="Operational Source Data" />
-        <ConnectorLabel text="Normalize + Structure" />
-        <FlowNode icon={FileSpreadsheet} label="Reporting Layer" />
-        <ConnectorLabel text="Surface Insights" />
-        <FlowNode icon={MonitorCheck} label="Leadership & Client Visibility" />
-      </div>
-
-      <div className="mt-5 rounded-2xl bg-sky-50 p-4 ring-1 ring-sky-100">
-        <p className="text-sm font-medium text-slate-950">
-          Better visibility starts with cleaner inputs
-        </p>
-        <p className="mt-2 text-sm leading-6 text-slate-600">
-          Turn fragmented operational data into clearer reporting views that leadership
-          and clients can actually use.
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function AlignmentFlowMock() {
-  return (
-    <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
-      <div className="mb-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-          Systems Alignment
-        </p>
-        <p className="mt-2 text-sm font-medium text-slate-950">
-          Handoffs between core platforms
-        </p>
-      </div>
-
-      <div className="grid gap-4">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-          <FlowNode icon={Database} label="ATS" />
-          <ArrowUpRight className="h-4 w-4 text-sky-500" />
-          <FlowNode icon={Workflow} label="Workflow Layer" />
-        </div>
-
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-          <FlowNode icon={Database} label="VMS" />
-          <ArrowUpRight className="h-4 w-4 text-sky-500" />
-          <FlowNode icon={BarChart3} label="Reporting Output" />
-        </div>
-
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-          <FlowNode icon={ShieldCheck} label="Compliance" />
-          <ArrowUpRight className="h-4 w-4 text-sky-500" />
-          <FlowNode icon={MonitorCheck} label="Client-Facing Experience" />
-        </div>
-      </div>
-
-      <div className="mt-5 rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-        <p className="text-sm font-medium text-slate-950">Cleaner system relationships</p>
-        <p className="mt-2 text-sm leading-6 text-slate-600">
-          Reduce friction where teams lose time: data handoffs, inconsistent field logic,
-          and disconnected workflows.
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function AuditFlowMock() {
-  return (
-    <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
-      <div className="mb-5">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-          Audit Model
-        </p>
-        <p className="mt-2 text-sm font-medium text-slate-950">
-          Compare, flag, and roll up discrepancies
-        </p>
-      </div>
-
-      <div className="space-y-3">
-        {[
-          ["System A", "System B", "Match / Delta"],
-          ["Monthly Input", "Audit Layer", "Review"],
-          ["Exception List", "Rollup View", "Action"],
-        ].map(([left, right, status]) => (
-          <div
-            key={`${left}-${right}`}
-            className="grid grid-cols-[1fr_auto_1fr_auto] items-center gap-3"
-          >
-            <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-              {left}
-            </div>
-            <ArrowUpRight className="h-4 w-4 text-sky-500" />
-            <div className="rounded-2xl bg-stone-50 px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
-              {right}
-            </div>
-            <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 ring-1 ring-sky-100">
-              {status}
-            </span>
-          </div>
+      <ul className="mt-6 space-y-3">
+        {bullets.map((item) => (
+          <li key={item} className="flex gap-3 text-sm leading-6 text-slate-700">
+            <CircleCheckBig className="mt-1 h-4 w-4 shrink-0 text-sky-600" />
+            <span>{item}</span>
+          </li>
         ))}
-      </div>
+      </ul>
+    </div>
+  );
+}
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Compare</p>
-          <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-            3 Sources
-          </p>
-        </div>
-        <div className="rounded-2xl bg-sky-50 p-4 ring-1 ring-sky-100">
-          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Flag</p>
-          <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-            Deltas
-          </p>
-        </div>
-        <div className="rounded-2xl bg-stone-50 p-4 ring-1 ring-slate-200">
-          <p className="text-xs uppercase tracking-[0.18em] text-slate-500">Roll up</p>
-          <p className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-            Output
-          </p>
-        </div>
+function FlowNode({ icon, label, detail }) {
+  const NodeIcon = icon;
+
+  return (
+    <div className="flex items-start gap-3 rounded-2xl bg-white px-4 py-4 ring-1 ring-slate-200">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100">
+        <NodeIcon className="h-4 w-4" />
+      </div>
+      <div>
+        <p className="text-sm font-semibold text-slate-950">{label}</p>
+        <p className="mt-1 text-xs leading-5 text-slate-500">{detail}</p>
       </div>
     </div>
   );
 }
 
-function ServiceBlock({ section, index }) {
-  const Icon = section.icon;
-
-  return (
-    <MotionReveal delay={0.08 + index * 0.04}>
-      <div className="space-y-8 lg:hidden">
-        <div>
-          <ServiceHeader Icon={Icon} title={section.title} reverse={false} />
-          <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-            {section.description}
-          </p>
-
-          <div className="mt-6 flex items-center gap-2 text-sm font-medium text-sky-600">
-            <span>Built for clarity and execution</span>
-            <ArrowUpRight className="h-4 w-4" />
-          </div>
-        </div>
-
-        <div>{section.visual}</div>
-      </div>
-
-      <div className="hidden gap-12 lg:grid lg:grid-cols-2 lg:items-center">
-        {!section.reverse ? (
-          <>
-            <div>
-              <ServiceHeader Icon={Icon} title={section.title} reverse={false} />
-              <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-                {section.description}
-              </p>
-
-              <div className="mt-6 flex items-center gap-2 text-sm font-medium text-sky-600">
-                <span>Built for clarity and execution</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </div>
-            </div>
-
-            <div>{section.visual}</div>
-          </>
-        ) : (
-          <>
-            <div>{section.visual}</div>
-
-            <div>
-              <ServiceHeader Icon={Icon} title={section.title} reverse />
-              <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
-                {section.description}
-              </p>
-
-              <div className="mt-6 flex items-center gap-2 text-sm font-medium text-sky-600">
-                <span>Built for clarity and execution</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-    </MotionReveal>
-  );
-}
-
-function Services() {
-  const sections = [
+function ServicesVisual() {
+  const steps = [
     {
-      title: "Operations Visibility & Reporting",
-      description:
-        "Build dashboards and reporting structures that give leadership and clients a clearer view into performance and activity.",
+      icon: Database,
+      label: "Current systems",
+      detail: "Tools, fields, reporting, handoffs, and manual work",
+    },
+    {
+      icon: ClipboardCheck,
+      label: "Gap map",
+      detail: "What is unclear, duplicated, missing, or slowing decisions",
+    },
+    {
+      icon: GitBranch,
+      label: "Workflow plan",
+      detail: "Future-state process, ownership, and implementation priorities",
+    },
+    {
       icon: BarChart3,
-      visual: <VisibilityFlowMock />,
-    },
-    {
-      title: "Business Systems Alignment",
-      description:
-        "Align ATS, VMS, and compliance systems so workflows reflect how your team actually operates day to day.",
-      icon: Workflow,
-      visual: <AlignmentFlowMock />,
-      reverse: true,
-    },
-    {
-      title: "Data Reconciliation & Audit Support",
-      description:
-        "Identify discrepancies across systems and create structured models for ongoing visibility and audit readiness.",
-      icon: ShieldCheck,
-      visual: <AuditFlowMock />,
+      label: "Visibility layer",
+      detail: "Dashboards, operating views, and practical reporting outputs",
     },
   ];
 
   return (
-    <section id="services" className="py-24 md:py-32">
+    <div className="rounded-[28px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] ring-1 ring-slate-200">
+      <div className="mb-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
+          Consulting model
+        </p>
+        <p className="mt-2 text-sm font-medium text-slate-950">
+          Diagnose, document, build, and support
+        </p>
+      </div>
+
+      <div className="grid gap-3">
+        {steps.map((step) => (
+          <FlowNode key={step.label} {...step} />
+        ))}
+      </div>
+
+      <div className="mt-5 rounded-2xl bg-sky-50 p-4 ring-1 ring-sky-100">
+        <p className="text-sm font-medium text-slate-950">
+          Every engagement ends with practical next steps
+        </p>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          The work is scoped around usable deliverables: findings, roadmaps,
+          cleaned-up systems, reporting views, and implementation guidance.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Services() {
+  const services = [
+    {
+      title: "Visibility audits",
+      description:
+        "A focused review of workflows, tools, reports, data inputs, and the places where leaders or operators cannot see what is happening.",
+      icon: ClipboardCheck,
+      bullets: ["Workflow and tool review", "Reporting gap inventory", "Practical recommendations"],
+    },
+    {
+      title: "Systems & workflow blueprints",
+      description:
+        "A documented roadmap for how work should move, which tools should own which data, and what should be built first.",
+      icon: Workflow,
+      bullets: ["Current and future-state workflows", "Tool and field recommendations", "Implementation priorities"],
+    },
+    {
+      title: "Dashboard & reporting buildouts",
+      description:
+        "Practical views for leadership, sales, operations, pipeline, account health, follow-up, and workflow tracking.",
+      icon: BarChart3,
+      bullets: ["Dashboard design", "Reporting logic", "Leadership-ready operating views"],
+    },
+    {
+      title: "CRM / process cleanup sprints",
+      description:
+        "Cleanup work for object structure, stages, fields, activity tracking, process logic, and reporting consistency.",
+      icon: Settings2,
+      bullets: ["Field and stage cleanup", "Activity and handoff logic", "Cleaner reporting foundations"],
+    },
+    {
+      title: "SMB operations starter work",
+      description:
+        "A lightweight systems review and roadmap for small businesses that need clearer tools and processes without heavy implementation.",
+      icon: FileText,
+      bullets: ["System-of-record review", "Simple metrics plan", "Automation fit assessment"],
+    },
+  ];
+
+  return (
+    <section id="services" className="border-t border-slate-200 bg-stone-50 py-24 md:py-32">
       <div className="mx-auto w-[min(1100px,92%)]">
-        <MotionReveal className="max-w-3xl">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-            Services
-          </p>
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <MotionReveal>
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+              Services
+            </p>
 
-          <h2 className="text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl">
-            Focused on the operational realities of staffing teams
-          </h2>
+            <h2 className="text-4xl font-semibold tracking-normal text-slate-950 sm:text-5xl lg:text-6xl">
+              Tangible consulting work for messy operational systems
+            </h2>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            We help bring clarity to reporting, align disconnected systems,
-            and reduce the operational friction that slows teams down.
-          </p>
-        </MotionReveal>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              Engagements are scoped around concrete outputs: what is broken,
+              what should change, what to build, and how to make the system easier
+              to operate.
+            </p>
+          </MotionReveal>
 
-        <div className="mt-20 space-y-28">
-          {sections.map((section, index) => (
-            <ServiceBlock key={section.title} section={section} index={index} />
+          <MotionReveal delay={0.08}>
+            <ServicesVisual />
+          </MotionReveal>
+        </div>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, index) => (
+            <MotionReveal key={service.title} delay={index * 0.04}>
+              <ServiceCard {...service} />
+            </MotionReveal>
           ))}
         </div>
       </div>

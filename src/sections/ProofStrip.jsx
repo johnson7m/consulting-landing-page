@@ -3,10 +3,11 @@ import MotionReveal from "../components/MotionReveal";
 
 function ProofStrip() {
   const items = [
-    "Client-facing reporting portals",
-    "Offer and performance dashboards",
-    "Tri-system reconciliation models",
-    "Built for staffing & workforce operations",
+    "Workflow and reporting audits",
+    "Systems and dashboard roadmaps",
+    "CRM and process cleanup",
+    "Leadership-ready visibility views",
+    "Staffing, workforce, and SMB operations",
   ];
 
   const scrollRef = useRef(null);
@@ -44,7 +45,7 @@ function ProofStrip() {
       <div className="mx-auto w-[min(1100px,92%)] overflow-hidden py-10">
         <MotionReveal className="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-            Selected capabilities
+            Practical deliverables
           </p>
 
           <div className="relative min-w-0 overflow-hidden">
